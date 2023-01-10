@@ -1,6 +1,6 @@
 from pygame import draw
 from sequence import Sequence
-
+from helpers.cards import Cards
 
 
 class GameView:
@@ -15,6 +15,9 @@ class GameView:
         self.grid_size = [grid_x, grid_y]
         self.font = font
         self.line_width = 10
+        self.cards = Cards()
+        self.cards.loadCards()
+        self.cards.addCards()
 
     def draw_game(self):
         self.draw_board()
@@ -28,6 +31,7 @@ class GameView:
             x = int(i % 10) * self.grid_size[0] + self.offset[0]
             y = int(i / 10) * self.grid_size[1] + self.offset[1]
             draw.rect(self.screen, (0, 0, 0), ((x, y), self.grid_size), int(self.line_width/5))
+            self.screen.blit(cards.H1, (x,y))
 
             self.draw_mark(x, y, self.grid_size, mark)
 
