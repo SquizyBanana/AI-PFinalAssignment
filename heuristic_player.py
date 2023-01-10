@@ -79,8 +79,8 @@ class HeuristicPlayer(Player):
         heuristic_score = 0
         for x in range(100):
             heuristic_score += self.check_row(next_board, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], mark) # top row
-            if 9 < x < 20:
-                heuristic_score += self.check_row(next_board, [x], mark) # middle row
+            if 9 < x < 16:
+                heuristic_score += self.check_row(next_board, [x , x + 1, x + 2, x + 3, x + 4], mark) # middle row
 
         return heuristic_score
 
@@ -89,6 +89,8 @@ class HeuristicPlayer(Player):
         check_array.append(board.board[check_rows[0]])
         check_array.append(board.board[check_rows[1]])
         check_array.append(board.board[check_rows[2]])
+        check_array.append(board.board[check_rows[3]])
+        check_array.append(board.board[check_rows[4]])
         max_score = check_array.count(mark)
         min_score = check_array.count(self.other_mark(mark))
         if max_score == 2 and min_score == 0:
