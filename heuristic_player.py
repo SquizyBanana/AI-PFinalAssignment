@@ -77,14 +77,11 @@ class HeuristicPlayer(Player):
 
     def calculate_heuristics(self, next_board, mark): #now needs to be done procedurally, 5 long rows
         heuristic_score = 0
-        heuristic_score += self.check_row(next_board, [0, 1, 2], mark) # top row
-        heuristic_score += self.check_row(next_board, [3, 4, 5], mark) # middle row
-        heuristic_score += self.check_row(next_board, [6, 7, 8], mark) # bottom row
-        heuristic_score += self.check_row(next_board, [0, 3, 6], mark) # left colum
-        heuristic_score += self.check_row(next_board, [1, 4, 7], mark) # middle colum
-        heuristic_score += self.check_row(next_board, [2, 5, 8], mark) # right colum
-        heuristic_score += self.check_row(next_board, [0, 4, 8], mark) # diagonal top left to bottom right
-        heuristic_score += self.check_row(next_board, [2, 4, 6], mark) # diagonal top right to bottom left
+        for x in range(100):
+            heuristic_score += self.check_row(next_board, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], mark) # top row
+            if 9 < x < 20:
+                heuristic_score += self.check_row(next_board, [x], mark) # middle row
+
         return heuristic_score
 
     def check_row(self, board,check_rows, mark):
