@@ -1,5 +1,6 @@
 # code for the final assingment of AI and Programming, written by Sven Rozendom and Kimberly ....
 # This code is based on and uses code from the Tick Tack Toe assingment: https://canvas.utwente.nl/courses/11018/modules/items/363790
+# Playing card images: https://pixabay.com/vectors/card-deck-deck-cards-playing-cards-161536/
 
 import pygame
 import sys

@@ -75,7 +75,7 @@ class HeuristicPlayer(Player):
         return self.next_score
 
 
-    def calculate_heuristics(self, next_board, mark): #now needs to be done procedurally
+    def calculate_heuristics(self, next_board, mark): #now needs to be done procedurally, 5 long rows
         heuristic_score = 0
         heuristic_score += self.check_row(next_board, [0, 1, 2], mark) # top row
         heuristic_score += self.check_row(next_board, [3, 4, 5], mark) # middle row

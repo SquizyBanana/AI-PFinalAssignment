@@ -28,7 +28,9 @@ class GameView:
             x = int(i % 10) * self.grid_size[0] + self.offset[0]
             y = int(i / 10) * self.grid_size[1] + self.offset[1]
             draw.rect(self.screen, (0, 0, 0), ((x, y), self.grid_size), int(self.line_width/5))
+
             self.draw_mark(x, y, self.grid_size, mark)
+
 
     def draw_mark(self, x, y, size, mark):
         color = (0, 0, 0)
