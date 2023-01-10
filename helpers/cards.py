@@ -5,7 +5,7 @@ import os
 class Cards:
 
     def __int__(self):
-        self.cards = []
+        pass
 
     def loadCards(self): #hardcoded instead of proceduraly because with proceduraly, no names could be given to the images.
         self.Corner = pygame.image.load("helpers/Cards/Corner.png").convert()
@@ -67,6 +67,7 @@ class Cards:
         self.SK = pygame.image.load("helpers/Cards/SK.png").convert()
 
     def addCards(self):
+        self.cards = []
         self.cards.append(self.Corner)
 
         self.cards.append(self.H2)
