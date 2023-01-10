@@ -39,10 +39,6 @@ class HeuristicPlayer(Player):
     def min_max(self, current_board, move, mark):
         next_board = current_board.deep_copy()
         next_board.place_move(move, mark)
-        check = tuple(next_board.board)
-        # if check in self.saved_boards:
-        #     self.check_counter += 1
-        #     return self.saved_boards.get(check)
         if next_board.check_win(mark):
             return 10
         elif next_board.board_full():
@@ -57,16 +53,11 @@ class HeuristicPlayer(Player):
                 self.calculate_counter += 1
                 scores.append(self.max_min(next_board, moves, self.other_mark(mark)))
             self.next_score = min(scores)
-            # self.saved_boards.update({tuple(next_board.board): self.next_score})
         return self.next_score
 
     def max_min(self, current_board, move, mark):
         next_board = current_board.deep_copy()
         next_board.place_move(move, mark)
-        # check = tuple(next_board.board)
-        # if check in self.saved_boards:
-        #     self.check_counter += 1
-        #     return self.saved_boards.get(check)
         if next_board.check_win(mark):
             return -10
         elif next_board.board_full():
@@ -81,11 +72,10 @@ class HeuristicPlayer(Player):
                 self.calculate_counter += 1
                 scores.append(self.min_max(next_board, moves, self.other_mark(mark)))
             self.next_score = max(scores)
-            # self.saved_boards.update({tuple(next_board.board) : self.next_score })
         return self.next_score
 
 
-    def calculate_heuristics(self, next_board, mark):
+    def calculate_heuristics(self, next_board, mark): #now needs to be done procedurally
         heuristic_score = 0
         heuristic_score += self.check_row(next_board, [0, 1, 2], mark) # top row
         heuristic_score += self.check_row(next_board, [3, 4, 5], mark) # middle row

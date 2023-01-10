@@ -5,7 +5,7 @@ class HumanPlayer(Player):
 
     def __init__(self, name, mark):
         Player.__init__(self, name, mark)
-        self.next_move = 10
+        self.next_move = 100
         '''super.name = name
         super.mark = mark'''
 

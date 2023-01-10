@@ -5,7 +5,7 @@ import copy
 class Board:
 
     def __init__(self):
-        self.board = [" "] * 9
+        self.board = [" "] * 100
         self.row_length = int(math.sqrt(len(self.board)))
 
     def move_is_legal(self, move):
@@ -16,7 +16,7 @@ class Board:
 
     def check_win(self, marks):
         win = False
-        # check for all marks if there is a 3 in a row in a diagnol, row, or column
+        # check for all marks if there is a 5 in a row in a diagnol, row, or column
         for mark in marks:
             win = self.winDiagnol(mark) or self.win_row(mark) or self.win_column(mark)
             if win:
@@ -33,24 +33,11 @@ class Board:
     def check_move_in_board(self, move):
         try:
             move = int(move)
-            if not (-1 < move < 10):
+            if not (-1 < move < 100):
                 raise ValueError
         except:
             return False
         return True
-
-    '''
-      -   -   - 
-    | 0 | 1 | 2 |
-      -   -   -
-    | 3 | 4 | 5 |
-      -   -   -
-    | 6 | 7 | 8 |
-      -   -   -
-    '''
-    '''
-    Ensure board is squared 
-    '''
 
     def winDiagnol(self, mark):
         diagnol_Left = True
@@ -100,13 +87,13 @@ class Board:
         return moves
 
     def create_board(self):
-        self.board = [" "] * 9
+        self.board = [" "] * 100
 
     def board_to_string(self):
         field = self.get_board()
         print("\n---------------------------")
         for i in range(len(field)):
-            if i % 3 == 0:
+            if i % 10 == 0:
                 print(" ")
             print("|" + field[i] + "|", end='')
 
