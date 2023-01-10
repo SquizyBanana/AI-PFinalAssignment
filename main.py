@@ -5,12 +5,12 @@ import pygame
 import sys
 from helpers.constants import Constants
 from helpers.keyboard_handler import KeyboardHandler
-from sequence import TicTacToe
+from sequence import Sequence
 from game_view import GameView
 from player import Player
 from human_player import HumanPlayer
-from min_max_player import MinMaxPlayer
-from min_max_player import MinMaxPlayer
+from heuristic_player import HeuristicPlayer
+from heuristic_player import HeuristicPlayer
 
 
 class Game:
@@ -29,8 +29,8 @@ class Game:
 
         # init TicTacToe
         self.player1 = HumanPlayer("Player1", "X")# Field.X)
-        self.player2 = MinMaxPlayer("Player2", "O")#Field.O)
-        self.game = TicTacToe(self.player1, self.player2)
+        self.player2 = HeuristicPlayer("Player2", "O")#Field.O)
+        self.game = Sequence(self.player1, self.player2)
         self.game_view = GameView(self.game, self.screen, self.font)
 
     """

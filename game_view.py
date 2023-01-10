@@ -1,5 +1,5 @@
 from pygame import draw
-from sequence import TicTacToe
+from sequence import Sequence
 
 
 

@@ -1,7 +1,7 @@
 from player import Player
 from board import Board
 
-class MinMaxPlayer(Player):
+class HeuristicPlayer(Player):
 
     def __init__(self, name, mark):
         Player.__init__(self, name, mark)

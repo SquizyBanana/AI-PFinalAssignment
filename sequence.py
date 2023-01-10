@@ -2,7 +2,7 @@ import random
 from board import Board
 
 
-class TicTacToe:
+class Sequence:
     def __init__(self, player1, player2):
         self.board = Board()
         self.players = [player1, player2]
