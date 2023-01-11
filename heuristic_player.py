@@ -78,24 +78,8 @@ class HeuristicPlayer(Player):
         heuristic_score = 0
         for x in range(100):
             heuristic_score += self.check_row(next_board, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], mark)  # row X1
-            if 9 < x < 16:
+            if 9 < x < 16 or 19 < x < 26 or 29 < x < 36 or 39 < x < 46 or 49 < x < 56 or 59 < x < 66 or 69 < x < 76 or 79 < x < 86 or 89 < x < 96:
                 heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)  # row X2
-            if 19 < x < 26:
-                heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)  # row X3
-            if 29 < x < 36:
-                heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)  # row X4
-            if 39 < x < 46:
-                heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)  # row X5
-            if 49 < x < 56:
-                heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)  # row X6
-            if 59 < x < 66:
-                heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)  # row X7
-            if 69 < x < 76:
-                heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)  # row X8
-            if 79 < x < 86:
-                heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)  # row X9
-            if 89 < x < 96:
-                heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)  # row X10
 
             heuristic_score += self.check_row(next_board, [0, 10, 20, 30, 40, 50, 60, 70, 80, 90], mark)  # row Y1
             if (x % 10 == 1) and (x < 60):
