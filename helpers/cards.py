@@ -126,3 +126,7 @@ class Cards:
         self.cards.append(self.SQ)
         self.cards.append(self.SK)
 
+    def sizeCards(self):
+        for image in self.cards:
+            image = pygame.transform.smoothscale(image,(10000,10000))
+            print(image)
