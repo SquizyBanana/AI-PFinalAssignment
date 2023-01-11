@@ -42,32 +42,41 @@ class Board:
     def winDiagnol(self, mark):
         diagnol_Left = True
         diagnol_Right = True
-        for i in range(0, self.row_length):
-            if self.board[i + i * self.row_length] != mark:
-                diagnol_Left = False
-            if self.board[len(self.board) - 1 - (self.row_length - 1) * (i + 1)] != mark:
-                diagnol_Right = False
+        for j in range(0,5):
+            for k in range(0,5):
+                for i in range(0, 4):
+                    if self.board[j + k * self.row_length + i + i * (self.row_length + 1)] != mark:
+                        diagnol_Right = False
+        for l in range(4, 9):
+            for m in range(0, 5):
+                for n in range(0, 4):
+                        if self.board[l + m * self.row_length + n + n * (self.row_length - 1)] != mark:
+                            diagnol_Left = False
         return diagnol_Right or diagnol_Left
 
     def win_row(self, mark):
         for i in range(0, self.row_length):
             win = True
-            for j in range(0, self.row_length):
-                if self.board[j + i * self.row_length] != mark:
-                    win = False
-                    break
+            for k in range(0, 5):
+                for j in range(0, 4):
+                    if self.board[k + j + i * self.row_length] != mark:
+                        win = False
+                        break
             if win:
+                print("win")
                 return win
         return win
 
     def win_column(self, mark):
         for i in range(0, self.row_length):
             win = True
-            for j in range(0, self.row_length):
-                if self.board[i + j * self.row_length] != mark:
-                    win = False
-                    break
+            for k in range(0, 5):
+                for j in range(0, 4):
+                    if self.board[i + k * self.row_length +j * self.row_length] != mark:
+                        win = False
+                        break
             if win:
+                print("win")
                 return win
         return win
 

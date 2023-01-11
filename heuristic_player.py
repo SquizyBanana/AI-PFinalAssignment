@@ -29,9 +29,6 @@ class HeuristicPlayer(Player):
         else:
             # compute the max score/move
             highest_score, best_move = max(score_move_pairs)
-            print("calculate" + str(self.calculate_counter))
-            print("check" + str(self.check_counter))
-            print("heuristics" + str(self.heuristics_counter))
             # return the move
             return best_move
 
