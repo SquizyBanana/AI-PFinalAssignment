@@ -1,7 +1,6 @@
 from player import Player
 from board import Board
 
-
 class HeuristicPlayer(Player):
 
     def __init__(self, name, mark):
@@ -102,4 +101,4 @@ class HeuristicPlayer(Player):
         if min_score > 0: # if the opponent has a mark in the checked row, it can't be finished. Thus, we disregard it
             return 0
         else:
-            return max_score
+            return 2 ** max_score
