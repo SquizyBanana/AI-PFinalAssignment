@@ -77,49 +77,17 @@ class HeuristicPlayer(Player):
     def calculate_heuristics(self, next_board, mark):  # now needs to be done procedurally, 5 long rows
         heuristic_score = 0
         for x in range(100):
-            heuristic_score += self.check_row(next_board, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], mark)  # row X1
+            heuristic_score += self.check_row(next_board, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], mark)  # row horizontally
             if 9 < x < 16 or 19 < x < 26 or 29 < x < 36 or 39 < x < 46 or 49 < x < 56 or 59 < x < 66 or 69 < x < 76 or 79 < x < 86 or 89 < x < 96:
-                heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)  # row X2
+                heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)
 
-            heuristic_score += self.check_row(next_board, [0, 10, 20, 30, 40, 50, 60, 70, 80, 90], mark)  # row Y1
-            if (x % 10 == 1) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y2
-            if (x % 10 == 2) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y3
-            if (x % 10 == 3) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y4
-            if (x % 10 == 4) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y5
-            if (x % 10 == 5) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y6
-            if (x % 10 == 6) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y7
-            if (x % 10 == 7) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y8
-            if (x % 10 == 8) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y9
-            if (x % 10 == 9) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y10
+            heuristic_score += self.check_row(next_board, [0, 10, 20, 30, 40, 50, 60, 70, 80, 90], mark)  # row vertically
+            if ((x % 10 == 1) or (x % 10 == 2) or (x % 10 == 3) or (x % 10 == 4) or (x % 10 == 5) or (x % 10 == 6) or (x % 10 == 7) or (x % 10 == 8) or (x % 10 == 9))and (x < 60):
+                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # rows vertically
 
-            heuristic_score += self.check_row(next_board, [0, 11, 22, 33, 44, 55, 66, 77, 88, 99], mark)  # row Y1
-            if (x % 11 == 1) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y2
-            if (x % 11 == 2) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y3
-            if (x % 11 == 3) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y4
-            if (x % 11 == 4) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y5
-            if (x % 11 == 5) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y6
-            if (x % 11 == 6) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y7
-            if (x % 11 == 7) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y8
-            if (x % 11 == 8) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y9
-            if (x % 11 == 9) and (x < 60):
-                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # row Y10
+            heuristic_score += self.check_row(next_board, [0, 11, 22, 33, 44, 55, 66, 77, 88, 99], mark)  # row diagonal left to right
+            if ((x % 11 == 1) or (x % 11 == 2) or (x % 11 == 3) or (x % 11 == 4) or (x % 11 == 5) or (x % 11 == 6) or (x % 11 == 7) or (x % 11 == 8) or (x % 11 == 9)) and (x < 60):
+                heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # rows diagonal left to right
         return heuristic_score
 
     def check_row(self, board, check_rows, mark):
