@@ -77,8 +77,7 @@ class HeuristicPlayer(Player):
     def calculate_heuristics(self, next_board, mark):  # now needs to be done procedurally, 5 long rows
         heuristic_score = 0
         for x in range(100):
-            heuristic_score += self.check_row(next_board, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], mark)  # row horizontally
-            if x < 9 or 9 < x < 16 or 19 < x < 26 or 29 < x < 36 or 39 < x < 46 or 49 < x < 56 or 59 < x < 66 or 69 < x < 76 or 79 < x < 86 or 89 < x < 96:
+            if x < 6 or 9 < x < 16 or 19 < x < 26 or 29 < x < 36 or 39 < x < 46 or 49 < x < 56 or 59 < x < 66 or 69 < x < 76 or 79 < x < 86 or 89 < x < 96:
                 heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)
 
             heuristic_score += self.check_row(next_board, [0, 10, 20, 30, 40, 50, 60, 70, 80, 90], mark)  # row vertically
