@@ -36,7 +36,7 @@ class HeuristicPlayer(Player):
         next_board = current_board.deep_copy()
         next_board.place_move(move, mark)
         if next_board.check_win(mark):
-            return 10
+            return 100000
         elif next_board.board_full():
             return 0
         else:
@@ -87,15 +87,12 @@ class HeuristicPlayer(Player):
 
     def check_row(self, board, check_rows, mark):
         check_array = []
-        check_array.append(board.board[check_rows[0]])
-        check_array.append(board.board[check_rows[1]])
-        check_array.append(board.board[check_rows[2]])
-        check_array.append(board.board[check_rows[3]])
-        check_array.append(board.board[check_rows[4]])
+        for i in range(0, 5):
+            check_array.append(board.board[check_rows[i]])
         max_score = check_array.count(mark)
         min_score = check_array.count(self.other_mark(mark))
 
-        if min_score > 0: # if the opponent has a mark in the checked row, it can't be finished. Thus, we disregard it
+        if min_score > 0: # if the opponent has a mark in the checked row, it can't be finished. Thus, we disregard it for now, but should be changed so the AI blocks paths if possible
             return 0
         else:
             return 2 ** max_score
