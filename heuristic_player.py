@@ -99,7 +99,7 @@ class HeuristicPlayer(Player):
         max_score = check_array.count(mark)
         min_score = check_array.count(self.other_mark(mark))
 
-        if min_score > 0: #if the opponent has a mark in the checked row, it can't be finished. Thus we disregard it
+        if min_score > 0: # if the opponent has a mark in the checked row, it can't be finished. Thus, we disregard it
             return 0
         else:
             return max_score
