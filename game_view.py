@@ -38,16 +38,15 @@ class GameView:
 
 
     def draw_mark(self, x, y, size, mark):
-        color = (0, 0, 0)
+        radius = int(size[0] / 2)
+
         if mark == "X":
-            width = size[0]
-            height = size[1]
-            draw.line(self.screen, color, [x, y], [x+width, y+height], self.line_width)
-            draw.line(self.screen, color, [x, y+height], [x + width, y], self.line_width)
+            color = (255, 0, 0)
+            draw.circle(self.screen, color, [int(x+radius), int(y+radius)], radius)
 
         if mark == "O":
-            radius = int(size[0] / 2)
-            draw.circle(self.screen, color, [int(x+radius), int(y+radius)], radius, self.line_width)
+            color = (0, 0, 255)
+            draw.circle(self.screen, color, [int(x+radius), int(y+radius)], radius)
 
     def draw_status_text(self):
         text = self.font.render(self.game.players[self.game.current_player].mark + "'s turn", True, (0, 0, 0))
