@@ -77,8 +77,7 @@ class HeuristicPlayer(Player):
     def calculate_heuristics(self, next_board, mark):  # now needs to be done procedurally, 5 long rows
         heuristic_score = 0
         for x in range(100):
-            heuristic_score += self.check_row(next_board, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], mark)  # row horizontally
-            if 9 < x < 16 or 19 < x < 26 or 29 < x < 36 or 39 < x < 46 or 49 < x < 56 or 59 < x < 66 or 69 < x < 76 or 79 < x < 86 or 89 < x < 96:
+            if x < 6 or 9 < x < 16 or 19 < x < 26 or 29 < x < 36 or 39 < x < 46 or 49 < x < 56 or 59 < x < 66 or 69 < x < 76 or 79 < x < 86 or 89 < x < 96:
                 heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)
 
             heuristic_score += self.check_row(next_board, [0, 10, 20, 30, 40, 50, 60, 70, 80, 90], mark)  # row vertically
@@ -99,13 +98,8 @@ class HeuristicPlayer(Player):
         check_array.append(board.board[check_rows[4]])
         max_score = check_array.count(mark)
         min_score = check_array.count(self.other_mark(mark))
-        if max_score == 2 and min_score == 0:
-            return 3
-        elif max_score == 1 and min_score == 0:
-            return 1
-        elif max_score == 0 and min_score == 1:
-            return -1
-        elif max_score == 0 and min_score == 2:
-            return -3
-        else:
+
+        if min_score > 0: #if the opponent has a mark in the checked row, it can't be finished. Thus we disregard it
             return 0
+        else:
+            return max_score
