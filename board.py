@@ -6,6 +6,10 @@ class Board:
 
     def __init__(self):
         self.board = [" "] * 100
+        self.board[0] = "C"     # see if this can be done cleaner
+        self.board[9] = "C"
+        self.board[90] = "C"
+        self.board[99] = "C"
         self.row_length = int(math.sqrt(len(self.board)))
 
     def move_is_legal(self, move):
