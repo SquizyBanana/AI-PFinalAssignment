@@ -44,7 +44,7 @@ class Board:
             for k in range(0,6):
                 diagnol_Right = True
                 for i in range(0, 5):
-                    if self.board[j + k * self.row_length + i + i * self.row_length ] != mark: # or ((j !=0 and k != 0 and i != 0) and (j != 5 and k != 5 and i != 4)):
+                    if self.board[j + k * self.row_length + i + i * self.row_length ] != mark and not ((j ==0 and k == 0 and i == 0) or (j == 5 and k == 5 and i == 4)):
                         diagnol_Right = False
                         break
                 if diagnol_Right:
@@ -54,7 +54,7 @@ class Board:
             for m in range(0, 6):
                 diagnol_Left = True
                 for n in range(0, 5):
-                    if self.board[l + m * self.row_length -n + n * self.row_length] != mark: # or ((l != 9 and m != 0 and n != 0) and (l != 4 and m !=5 and n != 4)):
+                    if self.board[l + m * self.row_length -n + n * self.row_length] != mark and not ((l == 9 and m == 0 and n == 0) or (l == 4 and m ==5 and n == 4)):
                         diagnol_Left = False
                         break
                 if diagnol_Left:
@@ -66,7 +66,7 @@ class Board:
             for k in range(0, 6):
                 win = True
                 for j in range(0, 5):
-                    if self.board[k + j + (i * self.row_length)] != mark: # or ((i != 0 and k != 0 and j != 0) and (i != 0 and k != 5 and j != 4) and (i != 9 and k != 0 and j != 0) and (i != 9 and k != 5 and j != 4)) :
+                    if self.board[k + j + (i * self.row_length)] != mark and not ((i == 0 and k == 0 and j == 0) or (i == 0 and k == 5 and j == 4) or (i == 9 and k == 0 and j == 0) or (i == 9 and k == 5 and j == 4)) :
                         win = False
                         break
                 if win:
@@ -80,7 +80,7 @@ class Board:
             for k in range(0, 6):
                 win = True
                 for j in range(0, 5):
-                    if self.board[i + (k * self.row_length) +(j * self.row_length)] != mark:# or  ((i != 0 and k != 0 and j != 0) and (i != 0 and k != 5 and j != 4) and (i != 9 and k != 0 and j != 0) and (i != 9 and k != 5 and j != 4)):
+                    if self.board[i + (k * self.row_length) +(j * self.row_length)] != mark and not ((i == 0 and k == 0 and j == 0) or (i == 0 and k == 5 and j == 4) or (i == 9 and k == 0 and j == 0) or (i == 9 and k == 5 and j == 4)):
                         win = False
                         break
                 if win:
