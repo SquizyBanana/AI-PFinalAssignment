@@ -8,6 +8,10 @@ class Cards:
     def __init__(self):
         self.card_stack = []
         self.card_list = []
+        self.loadCards()
+        self.addCards()  # Create the board
+        self.sizeCards()
+        self.createStack()  # Create the stack of cards to draw from
 
     def createStack(self):
         self.card_stack = self.card_list.copy()

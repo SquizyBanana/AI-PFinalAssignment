@@ -13,6 +13,7 @@ from human_player import HumanPlayer
 from heuristic_player import HeuristicPlayer
 from heuristic_player import HeuristicPlayer
 from helpers.cards import Cards
+import time
 
 class Game:
     """
@@ -28,15 +29,15 @@ class Game:
         self.font = pygame.font.SysFont(pygame.font.get_fonts()[0], 64)
         self.time = pygame.time.get_ticks()
 
-        # init
+        # init board and cards
         self.cards = Cards()
-        self.cards.loadCards()
-        self.cards.addCards()
-        self.cards.sizeCards()
-        self.cards.createStack()
+        time.sleep(1)  # wait for all the images to load
 
-        self.player1 = HumanPlayer("Player1", "X")# Field.X)
-        self.player2 = HeuristicPlayer("Player2", "O")#Field.O)
+        # init players
+        self.player1 = HumanPlayer("Player1", "X")          # Field.X)
+        self.player2 = HeuristicPlayer("Player2", "O")      # Field.O)
+
+        # init game
         self.game = Sequence(self.player1, self.player2)
         self.game_view = GameView(self.game, self.screen, self.font)
 
