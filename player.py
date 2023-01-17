@@ -1,11 +1,13 @@
 import random as rnd
-
+from helpers.cards import Cards
 
 class Player:
 
     def __init__(self, name, mark):
         self.name = name
         self.mark = mark
+        self.hand = []
+        self.Cards = Cards()
 
     def do_move(self, board):
         """
@@ -34,3 +36,6 @@ class Player:
             return "O"
         else:
             return "X"
+
+    def drawCard(self):
+        self.hand.append(self.Cards.drawCard())
