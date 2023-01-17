@@ -46,7 +46,7 @@ class HeuristicPlayer(Player):
         heuristic_score = 0
         for x in range(100):
             if x < 6 or 9 < x < 16 or 19 < x < 26 or 29 < x < 36 or 39 < x < 46 or 49 < x < 56 or 59 < x < 66 or 69 < x < 76 or 79 < x < 86 or 89 < x < 96:
-                heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)
+                heuristic_score += self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], mark)  # row horizontally
                 heuristic_score -= self.check_row(next_board, [x, x + 1, x + 2, x + 3, x + 4], self.other_mark(mark))
 
             heuristic_score += self.check_row(next_board, [0, 10, 20, 30, 40, 50, 60, 70, 80, 90], mark)  # row vertically
@@ -61,8 +61,9 @@ class HeuristicPlayer(Player):
                 heuristic_score += self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], mark)  # rows diagonal left to right
                 heuristic_score -= self.check_row(next_board, [x, x + 10, x + 20, x + 30, x + 40], self.other_mark(mark))
 
-
-
+            if ((x % 9 == 0) or (x % 9 == 1) or (x % 9 == 2) or (x % 9 == 3) or ((x % 9 == 4) and (x < 45)) or ((x % 9 == 4) and (x > 45)) or ((x % 9 == 5) and (x < 55)) or ((x % 9 == 5) and (x > 55)) or (x % 9 == 6) or (x % 9 == 7) or (x % 9 == 8)) and (x < 60):
+                heuristic_score += self.check_row(next_board, [x, x + 9, x + 18, x + 27, x + 36], mark)  # rows diagonal right to left
+                heuristic_score -= self.check_row(next_board, [x, x + 9, x + 18, x + 27, x + 36], self.other_mark(mark))
 
         return heuristic_score
 

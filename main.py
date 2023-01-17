@@ -29,8 +29,8 @@ class Game:
         self.time = pygame.time.get_ticks()
 
         # init TicTacToe
-        self.player1 = HumanPlayer("Player1", "X")# Field.X)
-        self.player2 = HeuristicPlayer("Player2", "O")#Field.O)
+        self.player1 = HumanPlayer("Player1", "X")  # Field.X)
+        self.player2 = HeuristicPlayer("Player2", "O")  # Field.O)
         self.game = Sequence(self.player1, self.player2)
         self.game_view = GameView(self.game, self.screen, self.font)
 
