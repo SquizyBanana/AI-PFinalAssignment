@@ -1,10 +1,10 @@
 import math
 import copy
-
-
+from helpers.cards import Cards
 class Board:
 
     def __init__(self):
+        self.cards = Cards()
         self.board = [" "] * 100
         self.board[0] = "C"     # see if this can be done cleaner
         self.board[9] = "C"
@@ -52,7 +52,6 @@ class Board:
                         diagnol_Right = False
                         break
                 if diagnol_Right:
-                    print("di R")
                     return diagnol_Right
         for l in range(4, 10):
             for m in range(0, 6):
@@ -62,7 +61,6 @@ class Board:
                         diagnol_Left = False
                         break
                 if diagnol_Left:
-                    print("di L")
                     return diagnol_Left
 
     def win_row(self, mark):
@@ -74,7 +72,6 @@ class Board:
                         win = False
                         break
                 if win:
-                    print("win R")
                     return win
         return win
 
@@ -88,7 +85,6 @@ class Board:
                         win = False
                         break
                 if win:
-                    print("win C")
                     return win
         return win
 

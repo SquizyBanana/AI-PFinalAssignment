@@ -16,9 +16,7 @@ class GameView:
         self.font = font
         self.line_width = 10
         self.cards = Cards()
-        self.cards.loadCards()
-        self.cards.addCards()
-        self.cards.sizeCards()
+
 
     def draw_game(self):
         self.draw_board()

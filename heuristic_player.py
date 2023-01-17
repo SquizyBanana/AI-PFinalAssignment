@@ -1,5 +1,6 @@
 from player import Player
 from board import Board
+from helpers.cards import Cards
 
 class HeuristicPlayer(Player):
 
@@ -9,6 +10,9 @@ class HeuristicPlayer(Player):
         self.check_counter = 0
         self.calculate_counter = 0
         self.heuristics_counter = 0
+        for i in range(6):
+            self.drawCard()
+        print(self.hand)
 
     def do_move(self, board):
         return self.calculate_next_move(board, self.mark)
@@ -30,6 +34,7 @@ class HeuristicPlayer(Player):
             # compute the max score/move
             highest_score, best_move = max(score_move_pairs)
             # return the move
+            self.drawCard()
             return best_move
 
     def move(self, current_board, move, mark):
@@ -70,11 +75,10 @@ class HeuristicPlayer(Player):
         check_array = []
         for i in range(0, 5):
             check_array.append(board.board[check_rows[i]])
-        print(check_array)
+
         max_score = check_array.count(mark)
         if "C" in check_array:
             max_score += 1
-            print("triggered")
         min_score = check_array.count(self.other_mark(mark))
 
         if min_score > 0: # if the opponent has a mark in the checked row, it can't be finished. Thus, we disregard it for now, but should be changed so the AI blocks paths if possible

@@ -1,12 +1,25 @@
 # this class loads all the images before use
 import pygame
-import os
+from numpy import *
+import random
 
 class Cards:
 
-    def __int__(self):
-        pass
+    def __init__(self):
+        self.card_stack = []
+        self.card_list = []
 
+    def createStack(self):
+        self.card_stack = self.card_list.copy()
+        random.shuffle(self.card_stack)
+        print(self.card_stack)
+
+    def drawCard(self):
+        return self.card_stack.pop(0)
+
+    def sizeCards(self):
+        for image in self.card_list:
+            image = pygame.transform.rotozoom(image,0,0.5)
     def loadCards(self): #hardcoded instead of proceduraly because with proceduraly, no names could be given to the images.
         self.Corner = pygame.image.load("helpers/Cards/Corner.png").convert()
 
@@ -67,8 +80,6 @@ class Cards:
         self.SK = pygame.image.load("helpers/Cards/SK.png").convert()
 
     def addCards(self):
-        self.card_list = []
-
         self.card_list.append(self.Corner)
         self.card_list.append(self.S2)
         self.card_list.append(self.S3)
@@ -178,7 +189,4 @@ class Cards:
         self.card_list.append(self.R7)
         self.card_list.append(self.R6)
         self.card_list.append(self.Corner)
-    def sizeCards(self):
-        for image in self.card_list:
-            image = pygame.transform.rotozoom(image,0,0.5)
-            print(image)
+
