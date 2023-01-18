@@ -3,8 +3,8 @@ from player import Player
 
 class HumanPlayer(Player):
 
-    def __init__(self, name, mark):
-        Player.__init__(self, name, mark)
+    def __init__(self, name, mark, cards):
+        Player.__init__(self, name, mark, cards)
         for i in range(6):
             self.drawCard()
         self.next_move = 100

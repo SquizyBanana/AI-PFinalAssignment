@@ -5,7 +5,7 @@ from helpers.cards import Cards
 
 class GameView:
 
-    def __init__(self, game, screen, font):
+    def __init__(self, game, screen, font, cards):
         self.game = game
         self.screen = screen
         screen_size = self.screen.get_size()
@@ -15,7 +15,7 @@ class GameView:
         self.grid_size = [grid_x, grid_y]
         self.font = font
         self.line_width = 10
-        self.cards = Cards()
+        self.cards = cards
 
 
     def draw_game(self):

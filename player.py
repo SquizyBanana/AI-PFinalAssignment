@@ -3,11 +3,11 @@ from helpers.cards import Cards
 
 class Player:
 
-    def __init__(self, name, mark):
+    def __init__(self, name, mark, cards):
         self.name = name
         self.mark = mark
         self.hand = []
-        self.Cards = Cards()
+        self.cards = cards
 
     def do_move(self, board):
         """
@@ -38,4 +38,4 @@ class Player:
             return "X"
 
     def drawCard(self):
-        self.hand.append(self.Cards.drawCard())
+        self.hand.append(self.cards.drawCard())

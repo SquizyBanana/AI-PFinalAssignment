@@ -1,11 +1,10 @@
 from player import Player
 from board import Board
-from helpers.cards import Cards
 
 class HeuristicPlayer(Player):
 
-    def __init__(self, name, mark):
-        Player.__init__(self, name, mark)
+    def __init__(self, name, mark, cards):
+        Player.__init__(self, name, mark, cards)
         self.saved_boards = {}
         self.check_counter = 0
         self.calculate_counter = 0

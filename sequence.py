@@ -3,8 +3,8 @@ from board import Board
 
 
 class Sequence:
-    def __init__(self, player1, player2):
-        self.board = Board()
+    def __init__(self, player1, player2, cards):
+        self.board = Board(cards)
         self.players = [player1, player2]
         self.current_player = random.randrange(0, len(self.players))
         print("Player", self.players[self.current_player].get_mark(), "starts")

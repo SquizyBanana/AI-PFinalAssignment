@@ -3,8 +3,8 @@ import copy
 from helpers.cards import Cards
 class Board:
 
-    def __init__(self):
-        self.cards = Cards()
+    def __init__(self, cards):
+        self.cards = cards
         self.board = [" "] * 100
         self.board[0] = "C"     # see if this can be done cleaner
         self.board[9] = "C"

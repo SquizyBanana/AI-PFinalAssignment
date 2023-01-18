@@ -34,12 +34,12 @@ class Game:
         time.sleep(1)  # wait for all the images to load
 
         # init players
-        self.player1 = HumanPlayer("Player1", "X")          # Field.X)
-        self.player2 = HeuristicPlayer("Player2", "O")      # Field.O)
+        self.player1 = HumanPlayer("Player1", "X", self.cards)          # Field.X)
+        self.player2 = HeuristicPlayer("Player2", "O", self.cards)      # Field.O)
 
         # init game
-        self.game = Sequence(self.player1, self.player2)
-        self.game_view = GameView(self.game, self.screen, self.font)
+        self.game = Sequence(self.player1, self.player2, self.cards)
+        self.game_view = GameView(self.game, self.screen, self.font, self.cards)
 
 
     """
