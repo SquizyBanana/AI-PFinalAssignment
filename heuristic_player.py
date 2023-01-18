@@ -37,6 +37,7 @@ class HeuristicPlayer(Player):
             # return the move
             print("draw heuristic")
             self.drawCard()
+            self.hand.remove(self.cards.card_list[best_move])
             return best_move
 
     def move(self, current_board, move, mark):

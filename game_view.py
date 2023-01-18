@@ -1,11 +1,14 @@
 from pygame import draw
+
+import human_player
 from sequence import Sequence
 from helpers.cards import Cards
 
 
 class GameView:
 
-    def __init__(self, game, screen, font, cards):
+    def __init__(self, game, screen, font, cards, human):
+        self.human_player = human
         self.game = game
         self.screen = screen
         screen_size = self.screen.get_size()
@@ -58,4 +61,6 @@ class GameView:
         y_new = int((pos[1]-self.offset[1])/self.grid_size[1])
         if -1 < x_new < self.game.row_length():
             if -1 < y_new < self.game.row_length():
-                self.game.players[self.game.current_player].set_move((x_new + 10 * y_new))
+                print(x_new+10 * y_new)
+                if (x_new + 10 * y_new) in self.human_player.hand:
+                    self.game.players[self.game.current_player].set_move((x_new + 10 * y_new), self.cards)

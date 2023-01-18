@@ -39,7 +39,7 @@ class Game:
 
         # init game
         self.game = Sequence(self.player1, self.player2)
-        self.game_view = GameView(self.game, self.screen, self.font, self.cards)
+        self.game_view = GameView(self.game, self.screen, self.font, self.cards, self.player1)
 
 
     """
