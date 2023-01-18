@@ -15,6 +15,10 @@ class Cards:
 
     def createStack(self):
         self.card_stack = self.card_list.copy()
+        del self.card_stack[99]    # remove corner cards from the stack
+        del self.card_stack[90]
+        del self.card_stack[9]
+        del self.card_stack[0]
         random.shuffle(self.card_stack)
 
     def drawCard(self):
