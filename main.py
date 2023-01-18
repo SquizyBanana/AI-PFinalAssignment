@@ -38,7 +38,7 @@ class Game:
         self.player2 = HeuristicPlayer("Player2", "O", self.cards)      # Field.O)
 
         # init game
-        self.game = Sequence(self.player1, self.player2, self.cards)
+        self.game = Sequence(self.player1, self.player2)
         self.game_view = GameView(self.game, self.screen, self.font, self.cards)
 
 
