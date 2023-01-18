@@ -16,7 +16,6 @@ class Cards:
     def createStack(self):
         self.card_stack = self.card_list.copy()
         random.shuffle(self.card_stack)
-        print(self.card_stack)
 
     def drawCard(self):
         return self.card_stack.pop(0)

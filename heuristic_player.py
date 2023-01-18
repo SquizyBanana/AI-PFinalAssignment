@@ -12,10 +12,8 @@ class HeuristicPlayer(Player):
         self.heuristics_counter = 0
         for i in range(6):
             self.drawCard()
-        print(self.hand)
 
     def do_move(self, board):
-        print(self.hand)
         return self.calculate_next_move(board, self.mark)
 
     def calculate_next_move(self, current_board, mark):
@@ -35,7 +33,6 @@ class HeuristicPlayer(Player):
             # compute the max score/move
             highest_score, best_move = max(score_move_pairs)
             # return the move
-            print("draw heuristic")
             self.drawCard()
             self.hand.remove(self.cards.card_list[best_move])
             return best_move

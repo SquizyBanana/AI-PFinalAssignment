@@ -24,6 +24,7 @@ class GameView:
     def draw_game(self):
         self.draw_board()
         self.draw_status_text()
+        self.draw_hand()
 
     def resize(self):
         pass
@@ -61,6 +62,9 @@ class GameView:
         y_new = int((pos[1]-self.offset[1])/self.grid_size[1])
         if -1 < x_new < self.game.row_length():
             if -1 < y_new < self.game.row_length():
-                print(x_new+10 * y_new)
-                if (x_new + 10 * y_new) in self.human_player.hand:
+                if (x_new + 10 * y_new) in [i for i, x in enumerate(self.cards.card_list) if x in self.human_player.hand]:
                     self.game.players[self.game.current_player].set_move((x_new + 10 * y_new), self.cards)
+
+    def draw_hand(self):
+        for i in range(len(self.human_player.hand)):
+            self.screen.blit(self.human_player.hand[i].image, (0,50*i))

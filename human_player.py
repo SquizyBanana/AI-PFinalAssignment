@@ -12,10 +12,9 @@ class HumanPlayer(Player):
         super.mark = mark'''
 
     def do_move(self, board):
-        print(board.get_possible_moves(self.hand, self.cards))
         return self.next_move
 
-    def set_move(self, move, cards):
+    def set_move(self, move, cards,):
         self.drawCard()
         self.hand.remove(cards.card_list[move])
         self.next_move = move
