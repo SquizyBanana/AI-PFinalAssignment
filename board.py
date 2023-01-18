@@ -95,9 +95,10 @@ class Board:
     def get_board(self):
         return self.board
 
-    def get_possible_moves(self):
+    def get_possible_moves(self, hand, cards):
         moves = []
-        for i in range(len(self.board)):
+        indices = [i for i, x in enumerate(cards.card_list) if x in hand ]
+        for i in indices:
             if self.board[i] == " ":
                 moves.append(i)
         return moves

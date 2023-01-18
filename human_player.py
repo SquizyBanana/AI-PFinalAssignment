@@ -12,8 +12,8 @@ class HumanPlayer(Player):
         super.mark = mark'''
 
     def do_move(self, board):
-        self.drawCard()
         return self.next_move
 
     def set_move(self, move):
+        self.drawCard()
         self.next_move = move
