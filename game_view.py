@@ -62,7 +62,8 @@ class GameView:
         y_new = int((pos[1]-self.offset[1])/self.grid_size[1])
         if -1 < x_new < self.game.row_length():
             if -1 < y_new < self.game.row_length():
-                if (x_new + 10 * y_new) in [i for i, x in enumerate(self.cards.card_list) if x in self.human_player.hand]:
+                board = self.game.get_board()
+                if (x_new + 10 * y_new) in [i for i, x in enumerate(self.cards.card_list) if x in self.human_player.hand] and board[x_new + 10 * y_new]  == " ":
                     self.game.players[self.game.current_player].set_move((x_new + 10 * y_new), self.cards)
 
     def draw_hand(self):
